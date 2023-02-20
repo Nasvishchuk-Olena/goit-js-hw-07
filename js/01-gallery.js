@@ -11,12 +11,15 @@ gallery.addEventListener('click', (event) => {
     else {
         galleryItems.map(item => {
             const instance = basicLightbox.create(`
-    <img src="${item.original}" width="800" height="600">
+    <img src="${item.original}" class="gallery__image" src="small-image.jpg"
+      data-source="large-image.jpg"
+      alt="Image description" >
 `)
+      
+            
             instance.show()
             
         })
-        //   { instance.close()}
     }
 })
 
