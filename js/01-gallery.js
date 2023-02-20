@@ -2,26 +2,29 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 const gallery = document.querySelector(".gallery")
-gallery.innerHTML = galleryItems.reduce((calc, item) => calc + `<img src=${item.preview} alt =${item.description} />`, "");
+gallery.innerHTML = galleryItems.reduce((calc, item) => calc + `<div class="gallery__item">
+  <a class="gallery__link" href="large-image.jpg">
+    <img
+      class="gallery__image"
+      src="${item.preview}"
+      data-source="large-image.jpg"
+      alt="${item.description}"
+    />
+  </a>
+</div>`, "");
 
 
 
 gallery.addEventListener('click', (event) => {
+    event.preventDefault()
     if (event.target.nodeName !== "IMG") return
-    else {
-        galleryItems.map(item => {
-            const instance = basicLightbox.create(`
-    <img src="${item.original}" class="gallery__image" src="small-image.jpg"
-      data-source="large-image.jpg"
-      alt="Image description" >
+    else { const instance = basicLightbox.create(`
+    <img src="" alt="">
 `)
-      
+instance.show() }
             
-            instance.show()
-            
-        })
     }
-})
+)
 
 
 console.log(galleryItems);
