@@ -3,11 +3,11 @@ import { galleryItems } from './gallery-items.js';
 
 const gallery = document.querySelector(".gallery")
 gallery.innerHTML = galleryItems.reduce((calc, item) => calc + `<div class="gallery__item">
-  <a class="gallery__link" href="large-image.jpg">
+  <a class="gallery__link" href="${item.original}">
     <img
       class="gallery__image"
       src="${item.preview}"
-      data-source="large-image.jpg"
+      data-source="${item.original}"
       alt="${item.description}"
     />
   </a>
@@ -18,8 +18,8 @@ gallery.innerHTML = galleryItems.reduce((calc, item) => calc + `<div class="gall
 gallery.addEventListener('click', (event) => {
     event.preventDefault()
     if (event.target.nodeName !== "IMG") return
-    else { const instance = basicLightbox.create(`
-    <img src="" alt="">
+    else {const instance = basicLightbox.create (`
+    <img src="${event.target.dataset.source}" alt="${event.target.alt}">
 `)
 instance.show() }
             

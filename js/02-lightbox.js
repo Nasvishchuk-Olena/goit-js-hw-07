@@ -7,7 +7,15 @@ gallery.innerHTML = galleryItems.reduce((calc, item) => calc + `
   <img class="gallery__image" src="${item.preview}" alt="${item.description}" />
 </a>`, "");
 
-
+gallery.addEventListener('click', (event) => {
+    event.preventDefault()
+    if (event.target.nodeName !== "IMG") return
+    else {
+        var lightbox = new SimpleLightbox('.gallery a', {  })
+    lightbox.next();}
+            
+    }
+)
 
 
 console.log(galleryItems);
