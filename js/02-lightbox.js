@@ -11,7 +11,12 @@ gallery.addEventListener('click', (event) => {
     event.preventDefault()
     if (event.target.nodeName !== "IMG") return
     else {
-        var lightbox = new SimpleLightbox('.gallery a', {  })
+      var lightbox = new SimpleLightbox('.gallery a', { 
+        captionsData: 'alt',
+        captionDelay: 250,
+        scrollzoom: false,
+      
+         })
     lightbox.next();}
             
     }
