@@ -7,19 +7,14 @@ gallery.innerHTML = galleryItems.reduce((calc, item) => calc + `
   <img class="gallery__image" src="${item.preview}" alt="${item.description}" />
 </a>`, "");
 
-gallery.addEventListener('click', (event) => {
-    event.preventDefault()
-    if (event.target.nodeName !== "IMG") return
-    else {
-      var lightbox = new SimpleLightbox('.gallery a', { 
+gallery.addEventListener('keypress', event => { 
+  if (event.code === "Esc") {
+    gallery.removeEventListener,
+  instance.close()}
+})
+      const lightbox = new SimpleLightbox('.gallery a', { 
         captionsData: 'alt',
         captionDelay: 250,
         scrollzoom: false,
       
          })
-    lightbox.next();}
-            
-    }
-)
-
-console.log(galleryItems);
